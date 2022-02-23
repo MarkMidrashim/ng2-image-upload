@@ -19,7 +19,7 @@ export class ImageUploadComponent implements OnInit, OnChanges {
   @Input() beforeUpload: (metadata: UploadMetadata) => UploadMetadata | Promise<UploadMetadata> = metadata => metadata;
   @Input() buttonCaption = 'Select Images';
   @Input() disabled = false;
-  @Input('class') cssClass = 'img-ul';
+  @Input() cssClass = 'img-ul';
   @Input() clearButtonCaption = 'Clear';
   @Input() dropBoxMessage = 'Drop your images here!';
   @Input() fileTooLargeMessage: string;
@@ -29,7 +29,7 @@ export class ImageUploadComponent implements OnInit, OnChanges {
   @Input() preview = true;
   @Input() partName: string;
   @Input() style: Style;
-  @Input('extensions') supportedExtensions: string[];
+  @Input() extensions: string[];
   @Input() url: string;
   @Input() withCredentials = false;
   @Input() uploadedFiles: string[] | Array<{ url: string, fileName: string, blob?: Blob }> = [];
@@ -38,18 +38,18 @@ export class ImageUploadComponent implements OnInit, OnChanges {
   @Output() uploadFinished = new EventEmitter<FileHolder>();
   @Output() previewClicked = new EventEmitter<FileHolder>();
 
-  @ViewChild('input')
+  @ViewChild('input', { static: false})
   private inputElement: ElementRef;
   private pendingFilesCounter = 0;
 
   constructor(private imageService: ImageUploadService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (!this.fileTooLargeMessage) {
       this.fileTooLargeMessage = 'An image was too large and was not uploaded.' + (this.maxFileSize ? (' The maximum file size is ' + this.maxFileSize / 1024) + 'KiB.' : '');
     }
-    this.supportedExtensions = this.supportedExtensions ? this.supportedExtensions.map((ext) => 'image/' + ext) : ['image/*'];
+    this.extensions = this.extensions ? this.extensions.map((ext) => 'image/' + ext) : ['image/*'];
   }
 
   deleteAll() {

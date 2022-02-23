@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
-import { NgxMdModule } from 'ngx-md';
-import { ReadmeComponent } from './components/readme.component';
+import { ReadmeComponent } from './readme.component';
 
 @NgModule({
   declarations: [
     ReadmeComponent
-  ],
-  imports: [
-    NgxMdModule
   ]
 })
 export class ReadmeModule {

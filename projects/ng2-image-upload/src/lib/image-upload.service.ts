@@ -8,11 +8,11 @@ export class ImageUploadService {
   }
 
   public uploadImage(url: string,
-                     image: File,
-                     headers?: HttpHeaders | { [name: string]: string | string[] },
-                     partName: string = 'image',
-                     customFormData?: { [header: string]: string | Blob },
-                     withCredentials?: boolean): Observable<HttpResponse<any>> {
+                    image: File,
+                    headers?: HttpHeaders | { [name: string]: string | string[] },
+                    partName: string = 'image',
+                    customFormData?: { [header: string]: string | Blob },
+                    withCredentials?: boolean): Observable<HttpResponse<any>> {
     if (!url || url === '') {
       throw new Error('Url is not set! Please set it before doing queries');
     }

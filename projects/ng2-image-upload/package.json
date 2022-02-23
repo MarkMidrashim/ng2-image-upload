@@ -26,8 +26,8 @@
   },
   "homepage": "https://github.com/aberezkin/image-upload#readme",
   "peerDependencies": {
-    "@angular/common": "^6.0.0 || ^7.0.0",
-    "@angular/core": "^6.0.0 || ^7.0.0",
-    "rxjs": "^6.0.0"
+    "@angular/common": "~12.2.16",
+    "@angular/core": "~12.2.16",
+    "rxjs": "~7.5.4"
   }
 }

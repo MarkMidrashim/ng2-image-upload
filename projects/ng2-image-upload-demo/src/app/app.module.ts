@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ImageUploadModule } from 'angular2-image-upload';
-import { NgxMdModule } from 'ngx-md';
 
 import { AppComponent } from './app.component';
-import { DemoComponent } from './demo/components/demo.component';
+import { DemoComponent } from './demo/demo.component';
 import { DemoModule } from './demo/demo.module';
-import { ReadmeComponent } from './readme/components/readme.component';
+import { ReadmeComponent } from './readme/readme.component';
 import { ReadmeModule } from './readme/readme.module';
 
 @NgModule({
@@ -18,7 +17,6 @@ import { ReadmeModule } from './readme/readme.module';
     BrowserModule,
     DemoModule,
     ReadmeModule,
-    NgxMdModule.forRoot(),
     ImageUploadModule.forRoot(),
     RouterModule.forRoot([{
       path: '',

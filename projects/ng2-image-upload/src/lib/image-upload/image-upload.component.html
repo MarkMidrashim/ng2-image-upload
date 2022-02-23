@@ -1,30 +1,30 @@
 <div
-     fileDrop
-     [accept]="supportedExtensions"
-     (fileOver)="onFileOver($event)"
-     (fileDrop)="onFileChange($event)"
-     [ngClass]="cssClass"
-     [ngClass]="{'img-ul-file-is-over': fileOver}"     
-     [ngStyle]="style?.layout"
+  fileDrop
+  [accept]="extensions"
+  (fileOver)="onFileOver($event)"
+  (fileDrop)="onFileChange($event)"
+  [ngClass]="cssClass"
+  [ngClass]="{'img-ul-file-is-over': fileOver}"
+  [ngStyle]="style?.layout"
 >
-  <div class="img-ul-file-upload img-ul-hr-inline-group">    
-    <label *ngIf="fileCounter != max"
-      class="img-ul-upload img-ul-button" 
+  <div class="img-ul-file-upload img-ul-hr-inline-group">
+    <label *ngIf="fileCounter !== max"
+      class="img-ul-upload img-ul-button"
       [ngStyle]="style?.selectButton"
       [ngClass]="{'img-ul-disabled': disabled}">
       <span [innerText]="buttonCaption"></span>
       <input
         type="file"
         [disabled]="disabled"
-        [accept]="supportedExtensions"
+        [accept]="extensions"
         [multiple]="max > 1"
         (change)="onFileChange(input.files)"
         #input>
     </label>
     <button *ngIf="fileCounter > 0"
       [disabled]="disabled"
-      class="img-ul-clear img-ul-button" 
-      (click)="deleteAll()" 
+      class="img-ul-clear img-ul-button"
+      (click)="deleteAll()"
       [ngStyle]="style?.clearButton"
       [innerText]="clearButtonCaption">
     </button>
@@ -43,9 +43,9 @@
       <div *ngIf="file.pending" class="img-ul-loading-overlay">
         <div class="img-ul-spinning-circle"></div>
       </div>
-      <div *ngIf="!file.pending" 
-        [ngClass]="{'img-ul-disabled': disabled}" 
-        class="img-ul-x-mark" 
+      <div *ngIf="!file.pending"
+        [ngClass]="{'img-ul-disabled': disabled}"
+        class="img-ul-x-mark"
         (click)="deleteFile(file)">
         <span class="img-ul-close"></span>
       </div>
